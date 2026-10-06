@@ -27,4 +27,9 @@ public class Maintenance {
 
     @Column(length = 255)
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_vehicule", nullable = false,
+            foreignKey = @ForeignKey(name = "fk_maintenance_vehicule"))
+    private Vehicule vehicule;
 }
